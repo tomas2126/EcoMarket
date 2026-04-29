@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoMarket</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- AUTH -->
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo-badge">EcoMarket</div>
+        <h1>Conecta productores locales con compradores</h1>
+        <p>Una plataforma simple, visual y funcional para comercio local.</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button id="loginTab" class="tab-btn active" type="button">Sign In</button>
+        <button id="registerTab" class="tab-btn" type="button">Register</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Username</label>
+        <input id="loginUsername" type="text" placeholder="Escribe tu usuario" />
+
+        <label>Password</label>
+        <input id="loginPassword" type="password" placeholder="Escribe tu contraseña" />
+
+        <div class="auth-row">
+          <label class="check-label">
+            <input id="loginRemember" type="checkbox" />
+            Remember me
+          </label>
+          <button id="forgotPasswordBtn" class="link-btn" type="button">Forgot password?</button>
+        </div>
+
+        <button class="primary-btn full" type="submit">Sign In</button>
+
+        <p class="auth-hint">
+          ¿No tienes cuenta?
+          <button id="switchToRegister" class="link-btn inline" type="button">Create one</button>
+        </p>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <label>Username</label>
+        <input id="registerUsername" type="text" placeholder="Tu nombre de usuario" />
+
+        <label>Email</label>
+        <input id="registerEmail" type="email" placeholder="Tu correo" />
+
+        <label>Password</label>
+        <input id="registerPassword" type="password" placeholder="Tu contraseña" />
+
+        <label>Confirm password</label>
+        <input id="registerConfirmPassword" type="password" placeholder="Repite la contraseña" />
+
+        <label>Register as</label>
+        <select id="registerRole">
+          <option value="buyer">Comprador</option>
+          <option value="seller">Vendedor</option>
+        </select>
+
+        <button class="primary-btn full" type="submit">Create account</button>
+
+        <p class="auth-hint">
+          ¿Ya tienes cuenta?
+          <button id="switchToLogin" class="link-btn inline" type="button">Sign In</button>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <section id="appShell" class="app-shell hidden">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">🌱</div>
+        <div>
+          <h2>EcoMarket</h2>
+          <span>Economía hiperlocal</span>
+        </div>
+      </div>
+
+      <nav class="topnav">
+        <button class="nav-btn active" data-view="home">Inicio</button>
+        <button class="nav-btn" data-view="catalog">Catálogo</button>
+        <button class="nav-btn" data-view="favorites">Favoritos</button>
+        <button class="nav-btn" data-view="cart">Carrito</button>
+        <button id="sellerNavBtn" class="nav-btn" data-view="seller">Panel vendedor</button>
+        <button class="nav-btn" data-view="profile">Perfil</button>
+      </nav>
+
+      <div class="user-chip">
+        <div>
+          <strong id="topUserName">Invitado</strong>
+          <span id="topUserRole">Sin sesión</span>
+        </div>
+        <button id="logoutBtn" class="ghost-btn" type="button">Salir</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- HOME -->
+      <section id="homeSection" class="page active">
+        <div class="hero-grid">
+          <div class="hero-copy card">
+            <span class="eyebrow">Conecta, compra y vende cerca de ti</span>
+            <h2>Compra cerca. Vende mejor. Crece con tu comunidad.</h2>
+            <p>
+              EcoMarket reúne productos frescos, artesanías y servicios locales en una sola plataforma clara,
+              moderna y fácil de usar.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-btn" data-go="catalog" type="button">Explorar catálogo</button>
+              <button class="secondary-btn" data-go="seller" type="button">Abrir panel vendedor</button>
+            </div>
+
+            <div class="hero-tags">
+              <span>✅ Registro rápido</span>
+              <span>✅ Catálogo visual</span>
+              <span>✅ Favoritos y carrito</span>
+              <span>✅ Panel de vendedor</span>
+            </div>
+          </div>
+
+          <div class="hero-side card">
+            <h3>Resumen rápido</h3>
+            <div class="mini-stats">
+              <div>
+                <strong id="miniProducts">0</strong>
+                <span>Productos</span>
+              </div>
+              <div>
+                <strong id="miniSellers">0</strong>
+                <span>Vendedores</span>
+              </div>
+              <div>
+                <strong id="miniFavorites">0</strong>
+                <span>Favoritos</span>
+              </div>
+              <div>
+                <strong id="miniCart">0</strong>
+                <span>Carrito</span>
+              </div>
+            </div>
+            <div class="callout">
+              La interfaz está pensada para mostrar una experiencia limpia, ordenada y lista para demo.
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <div>
+            <h3>Productos destacados</h3>
+            <p>Lo más visible de la comunidad</p>
+          </div>
+        </div>
+        <div id="featuredGrid" class="product-grid"></div>
+
+        <div class="section-head">
+          <div>
+            <h3>Cómo funciona</h3>
+            <p>Una ruta simple para usuarios y vendedores</p>
+          </div>
+        </div>
+        <div id="howItWorks" class="info-grid"></div>
+      </section>
+
+      <!-- CATALOG -->
+      <section id="catalogSection" class="page">
+        <div class="section-head">
+          <div>
+            <h3>Catálogo</h3>
+            <p>Busca por nombre, categoría o ubicación</p>
+          </div>
+        </div>
+
+        <div class="toolbar card">
+          <input id="catalogSearch" type="text" placeholder="Buscar productos..." />
+          <select id="catalogCategory">
+            <option value="Todos">Todos</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Artesanías">Artesanías</option>
+            <option value="Servicios">Servicios</option>
+            <option value="Hogar">Hogar</option>
+          </select>
+          <select id="catalogSort">
+            <option value="relevance">Relevancia</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="rating-desc">Mejor calificados</option>
+          </select>
+        </div>
+
+        <div id="catalogGrid" class="product-grid"></div>
+      </section>
+
+      <!-- FAVORITES -->
+      <section id="favoritesSection" class="page">
+        <div class="section-head">
+          <div>
+            <h3>Favoritos</h3>
+            <p>Los productos que guardaste</p>
+          </div>
+        </div>
+        <div id="favoritesGrid" class="product-grid"></div>
+      </section>
+
+      <!-- CART -->
+      <section id="cartSection" class="page">
+        <div class="section-head">
+          <div>
+            <h3>Carrito</h3>
+            <p>Organiza lo que vas a comprar</p>
+          </div>
+        </div>
+
+        <div class="cart-layout">
+          <div id="cartList" class="cart-list"></div>
+          <aside class="summary-card card">
+            <h4>Resumen</h4>
+            <div class="summary-row">
+              <span>Items</span>
+              <strong id="cartCount">0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Total</span>
+              <strong id="cartTotal">$0</strong>
+            </div>
+            <button id="clearCartBtn" class="danger-btn full" type="button">Vaciar carrito</button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SELLER -->
+      <section id="sellerSection" class="page">
+        <div class="section-head">
+          <div>
+            <h3>Panel vendedor</h3>
+            <p>Publica, edita y elimina productos</p>
+          </div>
+        </div>
+
+        <div id="sellerMessage" class="notice card"></div>
+
+        <div id="sellerArea" class="seller-layout">
+          <form id="productForm" class="card form-card">
+            <div class="form-title">
+              <h4>Nuevo producto</h4>
+              <p>Llena los campos para publicar</p>
+            </div>
+
+            <label>Nombre</label>
+            <input id="productTitle" type="text" placeholder="Ej. Miel orgánica" />
+
+            <label>Categoría</label>
+            <select id="productCategory">
+              <option value="Alimentos">Alimentos</option>
+              <option value="Artesanías">Artesanías</option>
+              <option value="Servicios">Servicios</option>
+              <option value="Hogar">Hogar</option>
+            </select>
+
+            <div class="two-cols">
+              <div>
+                <label>Precio</label>
+                <input id="productPrice" type="number" min="0" placeholder="18000" />
+              </div>
+              <div>
+                <label>Stock</label>
+                <input id="productStock" type="number" min="0" placeholder="10" />
+              </div>
+            </div>
+
+            <label>Ubicación</label>
+            <input id="productLocation" type="text" placeholder="Pasto, Nariño" />
+
+            <label>Emoji</label>
+            <select id="productEmoji">
+              <option value="🍯">🍯 Miel</option>
+              <option value="🥖">🥖 Pan</option>
+              <option value="🧶">🧶 Artesanía</option>
+              <option value="🛠️">🛠️ Servicio</option>
+              <option value="🧀">🧀 Queso</option>
+              <option value="☕">☕ Café</option>
+              <option value="🧼">🧼 Jabón</option>
+              <option value="🥬">🥬 Fresco</option>
+            </select>
+
+            <label>Descripción</label>
+            <textarea id="productDescription" rows="5" placeholder="Describe tu producto..."></textarea>
+
+            <label class="check-label inline">
+              <input id="productFeatured" type="checkbox" />
+              Marcar como destacado
+            </label>
+
+            <div class="form-actions">
+              <button id="productSubmitText" class="primary-btn" type="submit">Publicar producto</button>
+              <button id="productCancelBtn" class="secondary-btn hidden" type="button">Cancelar edición</button>
+            </div>
+          </form>
+
+          <div class="card list-card">
+            <div class="list-title">
+              <h4>Mis productos</h4>
+              <span id="sellerCount">0</span>
+            </div>
+            <div id="sellerList" class="seller-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section id="profileSection" class="page">
+        <div class="section-head">
+          <div>
+            <h3>Perfil</h3>
+            <p>Tu información de cuenta</p>
+          </div>
+        </div>
+
+        <div class="profile-layout">
+          <div id="profileCard" class="card profile-card"></div>
+
+          <div class="card profile-card">
+            <h4>Acciones rápidas</h4>
+            <div class="quick-actions">
+              <button class="secondary-btn" data-go="catalog" type="button">Ir al catálogo</button>
+              <button class="secondary-btn" data-go="favorites" type="button">Ver favoritos</button>
+              <button class="secondary-btn" data-go="cart" type="button">Ver carrito</button>
+              <button class="danger-btn" id="profileLogoutBtn" type="button">Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  <!-- DETAIL MODAL -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeDetailModal" class="modal-close" type="button">×</button>
+      <div id="detailBody"></div>
+    </div>
+  </div>
+
+  <!-- RESET MODAL -->
+  <div id="resetModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeResetModal" class="modal-close" type="button">×</button>
+      <h3>Recuperar contraseña</h3>
+      <form id="resetForm" class="auth-form compact">
+        <label>Username</label>
+        <input id="resetUsername" type="text" placeholder="Tu usuario" />
+
+        <label>Nueva contraseña</label>
+        <input id="resetPassword1" type="password" placeholder="Nueva contraseña" />
+
+        <label>Confirmar contraseña</label>
+        <input id="resetPassword2" type="password" placeholder="Repite la contraseña" />
+
+        <button class="primary-btn full" type="submit">Actualizar contraseña</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
