@@ -1,48 +1,167 @@
 # 🛒 EcoMarket - Plataforma de Conexión Local
 
-Este proyecto corresponde al desarrollo de un prototipo funcional de una plataforma web orientada a conectar productores locales con consumidores dentro de comunidades urbanas.
+## 📌 Descripción general
 
-## 🚀 Descripción
+EcoMarket es un prototipo funcional de una plataforma web orientada a conectar productores locales con consumidores dentro de comunidades urbanas, facilitando la visibilidad de productos y promoviendo el fortalecimiento de la economía local.
 
-EcoMarket es una aplicación web que permite:
+Actualmente, muchos emprendedores dependen de redes sociales o medios informales para vender, lo que genera desorganización y baja visibilidad. Este proyecto surge como una solución digital que centraliza la oferta de productos en un entorno organizado, accesible y fácil de usar.
 
-- Registro de usuarios como comprador o vendedor
+---
+
+## 🎯 Objetivo del sistema
+
+Desarrollar una plataforma web que permita:
+
+- Conectar productores locales con consumidores
+- Publicar y visualizar productos
+- Facilitar la interacción entre usuarios
+- Mejorar la visibilidad del comercio local
+
+---
+
+## 🚀 Funcionalidades implementadas
+
+El prototipo funcional incluye las siguientes características:
+
+### 🔐 Gestión de usuarios
+- Registro de usuarios
+- Selección de rol (Comprador o Vendedor)
 - Inicio de sesión
-- Visualización de productos
-- Gestión básica de productos por parte de vendedores
-- Interfaz amigable y responsiva
+- Simulación de autenticación
 
-El objetivo es fortalecer la economía local facilitando el contacto entre productores y consumidores.
+### 🛍️ Catálogo de productos
+- Visualización de productos
+- Interfaz amigable tipo marketplace
+- Navegación sencilla
+
+### 👨‍🌾 Panel de vendedor
+- Creación de productos
+- Visualización de productos propios
+- Gestión básica (simulada)
+
+### 🎨 Interfaz de usuario
+- Diseño moderno y responsivo
+- Experiencia de usuario intuitiva
+- Navegación clara entre secciones
+
+---
+
+## 🧱 Arquitectura del sistema (Prototipo)
+
+El sistema sigue una arquitectura básica cliente-servidor simulada:
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend (referencial):** Node.js + Express (no integrado en esta fase)
+- **Base de datos:** Simulada en memoria (JavaScript)
+
+---
 
 ## 🛠️ Tecnologías utilizadas
 
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Git y GitHub
+
+---
 
 ## 📁 Estructura del proyecto
 
 EcoMarket/
 │
-├── index.html
-├── style.css
-├── script.js
+├── index.html # Estructura principal del sistema
+├── style.css # Estilos y diseño visual
+├── script.js # Lógica del sistema
+└── README.md # Documentación del proyecto
 
+---
 
-## 🌐 Ver aplicación en línea
+## 🌐 Acceso al sistema
 
-👉 https://tomas2126.github.io/EcoMarket/
+El prototipo puede visualizarse directamente desde el navegador:
 
-## 📌 Repositorio
+🔗 **Aplicación en línea:**  
+https://tomas2126.github.io/EcoMarket/
 
-👉 https://github.com/tomas2126/EcoMarket
+🔗 **Repositorio en GitHub:**  
+https://github.com/tomas2126/EcoMarket
 
-## 👥 Integrantes
+---
+
+## 🧪 Pruebas de usabilidad
+
+El prototipo fue probado con usuarios para validar su funcionamiento y experiencia de uso.
+
+Resultados:
+- Navegación intuitiva
+- Registro sencillo
+- Interfaz clara
+- Funcionalidad comprensible
+
+Se identificaron mejoras que fueron aplicadas en esta versión.
+
+---
+
+## 👥 Actores del sistema
+
+- **Consumidor:** Busca y visualiza productos
+- **Productor:** Publica y gestiona productos
+- **Administrador:** (No implementado en esta fase)
+
+---
+
+## 📌 Alcance del prototipo
+
+Incluye:
+- Interfaz funcional
+- Simulación de interacción
+- Validación de experiencia de usuario
+
+No incluye:
+- Base de datos real
+- Autenticación real (JWT)
+- Pasarelas de pago
+- Backend completamente integrado
+
+---
+
+## 🔄 Metodología de desarrollo
+
+El proyecto fue desarrollado bajo la metodología ágil **Scrum**, permitiendo:
+
+- Trabajo por Sprints
+- Mejora continua
+- Validación constante con usuarios
+
+---
+
+## 📈 Resultados
+
+Se logró construir un prototipo funcional que:
+
+- Representa el flujo real del sistema
+- Permite interacción básica
+- Valida la viabilidad del proyecto
+
+---
+
+## 👨‍💻 Integrantes del equipo
 
 - Tomas David Portilla Uyaque  
-- Fannor Adrian Montenegro  
-- Jhon Alexander Rivera  
+- Fannor Adrian Montenegro Ceballos  
+- Jhon Alexander Rivera Aranda  
 
-## 📚 Proyecto académico
+---
 
-Este proyecto fue desarrollado como parte del curso de **Ingeniería de Software** en la Corporación Universitaria Iberoamericana.
+## 🎓 Contexto académico
+
+Proyecto desarrollado para el curso de **Ingeniería de Software**  
+Corporación Universitaria Iberoamericana  
+
+---
+
+## 📚 Conclusión
+
+EcoMarket representa una solución tecnológica enfocada en fortalecer el comercio local mediante herramientas digitales accesibles. Este prototipo valida la idea del sistema y sienta las bases para futuras mejoras e implementación completa.
+
+---
